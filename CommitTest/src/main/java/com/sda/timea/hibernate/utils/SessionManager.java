@@ -18,7 +18,7 @@ public class SessionManager extends AbstractSessionManager {
     }
 
     public static SessionFactory getSessionFactory() {
-        return INSTANCE.getSessionFactory("HumanResources");
+        return INSTANCE.getSessionFactory("Human_Resources");
 
     }
 

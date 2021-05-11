@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 
 public class DepartmentRepository
 {
-    public Department findById(String id)
+    public Department findById(Integer id)
     {
         Session session = SessionManager.getSessionFactory().openSession();
         //The find method returns the object with the provided id
