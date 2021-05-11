@@ -3,14 +3,14 @@ package com.sda.timea.hibernate.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="project")
+@Table(name = "project")
 public class Project {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="projectId")
+    @Column(name = "projectId")
     private Integer projectId;
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
     public Integer getProjectId() {
