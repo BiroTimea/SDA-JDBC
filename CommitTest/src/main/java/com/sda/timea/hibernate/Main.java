@@ -20,5 +20,6 @@ public class Main {
         departmentRepository.delete(department);
         department = departmentRepository.findById(1);
         System.out.println(department);
+
     }
 }

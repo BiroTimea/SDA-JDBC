@@ -5,18 +5,17 @@ import com.sda.timea.hibernate.utils.SessionManager;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class DepartmentRepository
-{
-    public Department findById(Integer id)
-    {
+public class DepartmentRepository {
+
+    public Department findById(Integer id) {
         Session session = SessionManager.getSessionFactory().openSession();
         //The find method returns the object with the provided id
         Department department = session.find(Department.class, id);
         session.close();
         return department;
     }
-    public void save(String departmentName)
-    {
+
+    public void save(String departmentName) {
         Session session = SessionManager.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         Department department = new Department();
@@ -27,7 +26,7 @@ public class DepartmentRepository
         session.close();
     }
 
-    public void delete(Department department){
+    public void delete(Department department) {
         Session session = SessionManager.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         session.delete(department);
@@ -35,7 +34,7 @@ public class DepartmentRepository
         session.close();
     }
 
-    public void update(Department department){
+    public void update(Department department) {
         Session session = SessionManager.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         session.update(department);
