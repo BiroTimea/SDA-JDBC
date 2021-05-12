@@ -13,6 +13,16 @@ public class Project {
     @Column(name = "name")
     private String name;
 
+    @Transient
+    private double budget;
+    @Transient
+    private String currency;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type")
+    private ProjectType projectType;
+
+
     public Integer getProjectId() {
         return projectId;
     }
@@ -29,11 +39,38 @@ public class Project {
         this.name = name;
     }
 
+    public double getBudget() {
+        return budget;
+    }
+
+    public void setBudget(double budget) {
+        this.budget = budget;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public ProjectType getProjectType() {
+        return projectType;
+    }
+
+    public void setProjectType(ProjectType projectType) {
+        this.projectType = projectType;
+    }
+
     @Override
     public String toString() {
         return "Project{" +
                 "projectId=" + projectId +
                 ", name='" + name + '\'' +
+                ", budget=" + budget +
+                ", currency='" + currency + '\'' +
+                ", projectType=" + projectType +
                 '}';
     }
 }

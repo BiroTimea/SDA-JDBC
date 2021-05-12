@@ -1,5 +1,6 @@
 package com.sda.timea.hibernate.repository;
 
+import com.sda.timea.hibernate.model.Account;
 import com.sda.timea.hibernate.model.Employee;
 import com.sda.timea.hibernate.utils.SessionManager;
 import org.hibernate.Session;
@@ -15,12 +16,15 @@ public class EmployeeRepository {
         return employee;
     }
 
-    public void save(Employee employee) {
+    public void save(Employee employee, Account account) {
         Session session = SessionManager.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
+        session.save(account);
+        employee.setAccount(account);
         session.save(employee);
         transaction.commit();
         session.close();
+
     }
 
     public void delete(Employee employee) {

@@ -1,5 +1,6 @@
 package com.sda.timea.hibernate.utils;
 
+import com.sda.timea.hibernate.model.Account;
 import com.sda.timea.hibernate.model.Department;
 import com.sda.timea.hibernate.model.Employee;
 import com.sda.timea.hibernate.model.Project;
@@ -28,6 +29,7 @@ public class SessionManager extends AbstractSessionManager {
         configuration.addAnnotatedClass(Department.class);
         configuration.addAnnotatedClass(Employee.class);
         configuration.addAnnotatedClass(Project.class);
+        configuration.addAnnotatedClass(Account.class);
 
 
     }
