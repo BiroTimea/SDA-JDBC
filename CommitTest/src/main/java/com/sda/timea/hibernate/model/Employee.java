@@ -1,6 +1,8 @@
 package com.sda.timea.hibernate.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "employees")
@@ -30,6 +32,12 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "departmentId")
     private Department department;
+
+    @ManyToMany
+    @JoinTable(name = " employee_projects",
+            joinColumns = {@JoinColumn(name = "employeeId")},
+            inverseJoinColumns = {@JoinColumn(name = "projectId")})
+    private Set<Project> projects = new HashSet<>();
 
     public Integer getEmployeeId() {
         return employeeId;
@@ -103,6 +111,14 @@ public class Employee {
         this.department = department;
     }
 
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -114,7 +130,6 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", salary=" + salary +
                 ", account=" + account +
-                ", department=" + department.getId() +
                 '}';
     }
 }

@@ -1,6 +1,8 @@
 package com.sda.timea.hibernate.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "project")
@@ -22,6 +24,8 @@ public class Project {
     @Column(name = "type")
     private ProjectType projectType;
 
+    @ManyToMany(mappedBy = "projects")
+    private Set<Employee> employees = new HashSet<>();
 
     public Integer getProjectId() {
         return projectId;
@@ -61,6 +65,14 @@ public class Project {
 
     public void setProjectType(ProjectType projectType) {
         this.projectType = projectType;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 
     @Override
